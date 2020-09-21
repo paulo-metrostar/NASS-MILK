@@ -6,3 +6,20 @@
 
 ## Monthly Milk Production - 24 Selected States
 ![Monthly Milk Production 24 Selected States](pictures/monthly-milk-prod-24-states.png)
+
+## TOC
+Table of Contents
+- **1.0-EDA.ipynb** Exploratory data analysis
+    - document data set download from quick stats (QS)
+    - read data into pandas
+    - **declutter data**
+        - drop empty cols
+        - **extract meta-data**
+            - move non-varying columns into a metadata object
+            - init null-sentinel handling
+    - **split data by periodicity**
+        - monthly
+        - quarterly
+        - annaul
+    - validate data types
+    - initial visualizations
