@@ -1,0 +1,14 @@
+name: nass-milk
+channels:
+  - defaults
+dependencies:
+  - notebook
+  - jupyterlab
+  - plotly
+  - pandas
+  - ipywidgets=7.5
+  - nodejs
+  - matplotlib
+  - psutil
+  - python-kaleido
+prefix: /Users/pmartinez/.conda/envs/nass-milk
