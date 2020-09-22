@@ -23,3 +23,4 @@ Table of Contents
         - annaul
     - validate data types
     - initial visualizations
+- **2.0-define-upgraded-vis.ipynb** Streamline and generalize data tidying and visualizing
