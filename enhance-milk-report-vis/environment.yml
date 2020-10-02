@@ -11,4 +11,6 @@ dependencies:
   - matplotlib
   - psutil
   - python-kaleido
+  - dash
+  - gunicorn
 prefix: /Users/pmartinez/.conda/envs/nass-milk
