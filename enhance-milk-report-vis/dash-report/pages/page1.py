@@ -105,7 +105,18 @@ def create_layout(app):
                                 figure = fig
                             ),
                         ],
-                        #className = "six columns",
+                    ),
+                    # Row 5 Table
+                    html.Div(
+                        [
+                            html.Table(
+                                make_dash_table(
+                                    # filter to only the 2019 2020 data
+                                    tidy_df[tidy_df.Year >= 2019]
+                                ),
+                            )
+                        ],
+                        style = {"overflow-x":"auto"},
                     ),
                 ],
                 className="sub_page",

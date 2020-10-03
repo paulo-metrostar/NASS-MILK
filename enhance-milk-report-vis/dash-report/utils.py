@@ -16,18 +16,19 @@ def get_header(app):
                         className="logo",
                     ),
                     html.A(
-                        html.Button("Get the data", 
+                        html.Button("Get the full tidy data set", 
                                     # apologies for using the id for another element, didn't feel like defining the css for a new element right now
                                     id="learn-more-button"),
                         href="https://github.com/paulo-metrostar/NASS-MILK/blob/master/enhance-milk-report-vis/data-mart-tech-specs/tidy-data.csv",
                     ),
-                    html.P(
+                    
+                ],
+                className="row",
+            ),
+            html.P(
                         "ISSN: [####-####] Released [MM-DD-YYYY] by the Martinez Agricultural Statistics Service (MASS), Agricultural Statistics Board, Paulo G. Martinez Department of Agriculture (PGMDA).",
                         style={"padding-left": "25px"},
                     ),
-                ],
-                #className="row",
-            ),
             html.Div(
                 [
                     html.Div(
@@ -75,7 +76,8 @@ def get_menu():
 
 def make_dash_table(df):
     """ Return a dash definition of an HTML table for a Pandas dataframe """
-    table = []
+    # init the html table with the first row being the column headers
+    table = [html.Tr([html.Td(col) for col in df.columns])]
     for index, row in df.iterrows():
         html_row = []
         for i in range(len(row)):
