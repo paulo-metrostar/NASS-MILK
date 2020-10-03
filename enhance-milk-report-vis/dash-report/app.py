@@ -5,7 +5,8 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 from pages import (
     page1,
-    page2
+    page2,
+    tidy_data_long_monthly_nat
 )
 
 app = dash.Dash(
@@ -23,10 +24,13 @@ app.layout = html.Div(
 def display_page(pathname):
     if pathname == "/dash-report/page2":
         return page2.create_layout(app)
+    elif pathname == "/dash-report/tidy_data_long_monthly_nat":
+        return tidy_data_long_monthly_nat.create_layout(app)
     elif pathname == "/dash-report/full-view":
         return (
             page1.create_layout(app),
-            page2.create_layout(app)
+            page2.create_layout(app),
+            tidy_data_long_monthly_nat.create_layout(app)
         )
     else:
         return page1.create_layout(app)

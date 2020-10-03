@@ -14,44 +14,11 @@ DATA_PATH = PATH.joinpath("../../data-mart-tech-specs").resolve()
 # get data
 tidy_df = pd.read_csv(DATA_PATH.joinpath("tidy-data.csv"))
 
-# init the figure
-col = 'Milk Production Lbs'
-fig = go.FigureWidget()
-# add some traces
-for yr in tidy_df.Year.unique():
-    if yr in {2020, 2019}:
-        fig.add_trace(
-            go.Scatter(
-                x = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])['Period'],
-                y = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])[col],
-                mode = 'lines+markers',
-                name = str(yr),
-            )
-        )
-    # add the rest of the traces toggled off
-    else:
-        fig.add_trace(
-            go.Scatter(
-                x = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])['Period'],
-                y = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])[col],
-                mode = 'lines+markers',
-                name = str(yr),
-                visible='legendonly'
-            )
-        )
-# Add title
-fig.update_layout(
-    title = 'Monthly ' + col + ' - National',
-    #yaxis_title = col,
-)
-
-
 def create_layout(app):
     # Page layouts
     return html.Div(
         [
             html.Div([Header(app)]),
-            # page 1
             html.Div(
                 [
                     # Row 3
@@ -100,19 +67,19 @@ def create_layout(app):
                     # Row 4
                     html.Div(
                         [
-                            dcc.Graph(
-                                id = 'month-national-milk-prod',
-                                figure = fig
-                            ),
-                        ],
-                    ),
-                    # Row 5 Table
-                    html.Div(
-                        [
+                            html.H6(
+                                        "Monthly National Tidy Data - Long Format",
+                                        className="subtitle padded",
+                                    ),
                             html.Table(
                                 make_dash_table(
-                                    # filter to only the 2019 2020 data
-                                    tidy_df[tidy_df.Year >= 2019]
+                                    # select the columns in an order conducive to automated analysis 
+                                    tidy_df[[
+                                        'Milk Cows', 'Milk Production Lbs', 'Milk Per Cow', 'Period', 'Year', 'Month'
+                                    ]][
+                                        # filter to only the 2019 2020 data
+                                        tidy_df.Year >= 2019
+                                    ]
                                 ),
                             )
                         ],

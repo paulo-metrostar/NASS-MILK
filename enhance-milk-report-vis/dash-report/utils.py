@@ -16,7 +16,7 @@ def get_header(app):
                         className="logo",
                     ),
                     html.A(
-                        html.Button("Get the full tidy data set", 
+                        html.Button("Download the full tidy data set for all years", 
                                     # apologies for using the id for another element, didn't feel like defining the css for a new element right now
                                     id="learn-more-button"),
                         href="https://github.com/paulo-metrostar/NASS-MILK/blob/master/enhance-milk-report-vis/data-mart-tech-specs/tidy-data.csv",
@@ -59,15 +59,20 @@ def get_menu():
     menu = html.Div(
         [
             dcc.Link(
-                "Page1",
+                "Page 1",
                 href="/dash-report/page1",
                 className="tab first",
             ),
             dcc.Link(
-                "Page2",
+                "Page 2",
                 href="/dash-report/page2",
                 className="tab",
             ),
+            dcc.Link(
+                "Tidy Data Long Monthly National 2019 & 2020",
+                href="/dash-report/tidy_data_long_monthly_nat",
+                className="tab",
+            )
         ],
         className="row all-tabs",
     )

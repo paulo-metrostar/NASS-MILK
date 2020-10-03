@@ -196,7 +196,8 @@ li {
   left: 0;
   height: 20%;
   margin: 0mm;
-  border-left: 5px solid #98151b;
+  /*border-left: 5px solid #98151b; dark red from original*/
+  border-left: 5px solid #007364; /*my random teal*/
   background: #ffffff;
   padding-top: 1px;
   padding-bottom: 1px;
