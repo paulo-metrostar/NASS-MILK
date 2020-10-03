@@ -12,20 +12,26 @@ def get_header(app):
             html.Div(
                 [
                     html.Img(
-                        src=app.get_asset_url("dash-financial-logo.png"),
+                        src=app.get_asset_url("USDA-NASS-logos.png"),
                         className="logo",
                     ),
                     html.A(
-                        html.Button("Learn More", id="learn-more-button"),
-                        href="https://plot.ly/dash/pricing/",
+                        html.Button("Get the data", 
+                                    # apologies for using the id for another element, didn't feel like defining the css for a new element right now
+                                    id="learn-more-button"),
+                        href="https://github.com/paulo-metrostar/NASS-MILK/blob/master/enhance-milk-report-vis/data-mart-tech-specs/tidy-data.csv",
+                    ),
+                    html.P(
+                        "ISSN: [####-####] Released [MM-DD-YYYY] by the Martinez Agricultural Statistics Service (MASS), Agricultural Statistics Board, Paulo G. Martinez Department of Agriculture (PGMDA).",
+                        style={"padding-left": "25px"},
                     ),
                 ],
-                className="row",
+                #className="row",
             ),
             html.Div(
                 [
                     html.Div(
-                        [html.H5("Calibre Financial Index Fund Investor Shares")],
+                        [html.H5("Milk Production")],
                         className="seven columns main-title",
                     ),
                     html.Div(

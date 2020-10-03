@@ -132,6 +132,7 @@ h1,
 h5,
 h6 {
   margin: 0;
+  font-weight: bold;
 }
 h5 {
   font-size: 2.6rem;
@@ -157,11 +158,13 @@ li {
   padding: 30px;
   margin-bottom: 25px;
   border-radius: 1px;
-  background: #98151b;
+  /*background: #98151b; dark red from original*/
+  background: #007364; /*my random teal*/
   color: #ffffff;
 }
 .full-view-link {
-  background-color: rgb(152, 21, 27);
+  /*background-color: rgb(152, 21, 27); dark red from original*/
+  background-color: rgb(0, 115, 99); /*my random teal*/
   color: white !important;
   font-size: medium;
   padding: 15px 15px;
@@ -181,7 +184,8 @@ li {
   color: #3a3a3a;
   font-size: 40px !important;
   width: 80%;
-  border-left: 20px solid #98151b;
+  /*border-left: 20px solid #98151b; dark red from original*/
+  border-left: 20px solid #007364; /*my random teal*/
   background: #ffffff;
   padding-left: 30px;
 }
