@@ -1,5 +1,6 @@
 import dash_html_components as html
 import dash_core_components as dcc
+import pandas as pd
 
 
 def Header(app):
@@ -82,10 +83,29 @@ def get_menu():
 def make_dash_table(df):
     """ Return a dash definition of an HTML table for a Pandas dataframe """
     # init the html table with the first row being the column headers
-    table = [html.Tr([html.Td(col) for col in df.columns])]
+    table = [html.Tr([html.Td(col, style={"font-weight": "bold"}) for col in df.columns])]
+    # iterate through each df row
     for index, row in df.iterrows():
+        # init an empty html row
         html_row = []
         for i in range(len(row)):
-            html_row.append(html.Td([row[i]]))
+            
+            # handle nulls (recall we are casting for HTML copy-pastability into excel which will handle blank strings to null conversion well)
+            if pd.isna(row[i]):
+                html_row.append(html.Td(''))
+            
+            # handle string values
+            elif type(row[i]) == str:
+                html_row.append(html.Td(row[i]))
+                
+            # handle ints
+            elif str(row[i])[-2:] == ".0" or type(row[i]) == int:
+                html_row.append(html.Td(f"{int(row[i]):,}"))
+            
+            # handle floats
+            else:
+                html_row.append(html.Td(row[i]))
+                
         table.append(html.Tr(html_row))
+        
     return table

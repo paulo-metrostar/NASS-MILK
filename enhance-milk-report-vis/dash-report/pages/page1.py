@@ -45,6 +45,37 @@ fig.update_layout(
     #yaxis_title = col,
 )
 
+# init the figure
+col = 'Milk Cows'
+fig2 = go.FigureWidget()
+# add some traces
+for yr in tidy_df.Year.unique():
+    if yr in {2020, 2019}:
+        fig2.add_trace(
+            go.Scatter(
+                x = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])['Period'],
+                y = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])[col],
+                mode = 'lines+markers',
+                name = str(yr),
+            )
+        )
+    # add the rest of the traces toggled off
+    else:
+        fig2.add_trace(
+            go.Scatter(
+                x = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])['Period'],
+                y = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])[col],
+                mode = 'lines+markers',
+                name = str(yr),
+                visible='legendonly'
+            )
+        )
+# Add title
+fig2.update_layout(
+    title = 'Monthly ' + col + ' - National',
+    #yaxis_title = col,
+)
+
 
 def create_layout(app):
     # Page layouts
@@ -106,17 +137,14 @@ def create_layout(app):
                             ),
                         ],
                     ),
-                    # Row 5 Table
+                    # Row 5
                     html.Div(
                         [
-                            html.Table(
-                                make_dash_table(
-                                    # filter to only the 2019 2020 data
-                                    tidy_df[tidy_df.Year >= 2019]
-                                ),
-                            )
+                            dcc.Graph(
+                                id = 'month-national-milk-prod',
+                                figure = fig2
+                            ),
                         ],
-                        style = {"overflow-x":"auto"},
                     ),
                 ],
                 className="sub_page",
