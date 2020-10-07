@@ -7,6 +7,8 @@ from utils import Header, make_dash_table
 import pandas as pd
 import pathlib
 
+# Load Data
+# ---------------------------
 # get relative data folder
 PATH = pathlib.Path(__file__).parent
 DATA_PATH = PATH.joinpath("../../data-mart-tech-specs").resolve()
@@ -24,12 +26,15 @@ quarterly_long_df = quarterly_long_df[[
 
 # get qtly aggregates
 agg_qtly_df = pd.DataFrame()
-agg_qtly_df['Annual'] = ['Aggregate']
+agg_qtly_df['Agg'] = ['Annual']
+# aggregate the columns to sum
 for col in quarterly_long_df.columns:
     if col not in ('Quarter', '2020 Milk Production (lbs) Percent Change from 2019', 'Month'):
         agg_qtly_df['Sum ' + col] = [quarterly_long_df[col].sum()]
-
+# aggregate the column to average
 agg_qtly_df['Avg 2020 Milk Production (lbs) Percent Change from 2019'] = round(quarterly_long_df['2020 Milk Production (lbs) Percent Change from 2019'].mean(), 2)
+# rename the columns
+#agg_qtly_df = agg_qtly_df.rename(columns = {col: 'Sum' for col in agg_qtly_df.columns if 'Sum' in col})
 
 # read in the quarterly data in tidy long format
 monthly_long_df = pd.read_excel(
@@ -50,40 +55,25 @@ for col in monthly_long_df.columns:
 
 agg_monthly_df['Avg 2020 Milk Production (lbs) Percent Change from 2019'] = round(monthly_long_df['2020 Milk Production (lbs) Percent Change from 2019'].mean(), 2)
 
+
+# Define HTML layout
+# ---------------------------
 def create_layout(app):
     # Page layouts
     return html.Div(
         [
             html.Div([Header(app)]),
-            # page 1
+            # page 2
             html.Div(
                 [
+                    html.P("Values in tables may not add due to rounding. Blank cells indicate estimation period has not yet begin"),
                     # Row 3
                     html.Div(
                         [
-                            html.Div(
-                                [
-                                    html.H5("Tidy Data - Wide Format"),
-                                    html.Br([]),
-                                    html.P(
-                                        "Wide format makes it very easy to automatically generate time-series analyses (line plots that show the change of a metric over time)",
-                                        style={"color": "#ffffff"},
-                                        className="row",
-                                    ),
-                                ],
-                                className="product",
-                            )
-                        ],
-                        className="row",
-                    ),
-                    # Row 4
-                    html.Div(
-                        [
                             html.H6(
-                                        "Quarterly National Tidy Data - Wide Format",
+                                        "Milk Cows and Production by Quarter -- United States: 2019-2020",
                                         className="subtitle padded",
                                     ),
-                            html.P("May not add due to rounding. Blank data cells indicate estimation period has not yet begun"),
                             html.Table(
                                 make_dash_table(
                                     quarterly_long_df
@@ -98,14 +88,34 @@ def create_layout(app):
                         ],
                         style = {"overflow-x":"auto"},
                     ),
+                    # Row 4
+                    html.Div(
+                        [
+                            html.H6(
+                                        "Milk Cows and Production by Month -- States: 2019-2020",
+                                        className="subtitle padded",
+                                    ),
+                            html.Table(
+                                make_dash_table(
+                                    monthly_long_df
+                                ),
+                            ),
+                            # add aggregate
+                            html.Table(
+                                make_dash_table(
+                                    agg_monthly_df
+                                ),
+                            ),
+                        ],
+                        style = {"overflow-x":"auto"},
+                    ),
                     # Row 5
                     html.Div(
                         [
                             html.H6(
-                                        "Monthly National Tidy Data - Wide Format",
+                                        "Estimated Milk Cows and Production by Month -- United States: 2019-2020",
                                         className="subtitle padded",
                                     ),
-                            html.P("May not add due to rounding. Blank data cells indicate estimation period has not yet begun"),
                             html.Table(
                                 make_dash_table(
                                     monthly_long_df

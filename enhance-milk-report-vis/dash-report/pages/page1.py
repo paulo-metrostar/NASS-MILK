@@ -7,6 +7,9 @@ from utils import Header, make_dash_table
 import pandas as pd
 import pathlib
 
+# Load Data
+# ---------------------------
+
 # get relative data folder
 PATH = pathlib.Path(__file__).parent
 DATA_PATH = PATH.joinpath("../../data-mart-tech-specs").resolve()
@@ -14,13 +17,13 @@ DATA_PATH = PATH.joinpath("../../data-mart-tech-specs").resolve()
 # get data
 tidy_df = pd.read_csv(DATA_PATH.joinpath("tidy-data.csv"))
 
-# init the figure
+# init the mo_mlk_prod_figure
 col = 'Milk Production Lbs'
-fig = go.FigureWidget()
+mo_mlk_prod_fig = go.FigureWidget()
 # add some traces
 for yr in tidy_df.Year.unique():
     if yr in {2020, 2019}:
-        fig.add_trace(
+        mo_mlk_prod_fig.add_trace(
             go.Scatter(
                 x = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])['Period'],
                 y = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])[col],
@@ -30,7 +33,7 @@ for yr in tidy_df.Year.unique():
         )
     # add the rest of the traces toggled off
     else:
-        fig.add_trace(
+        mo_mlk_prod_fig.add_trace(
             go.Scatter(
                 x = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])['Period'],
                 y = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])[col],
@@ -40,18 +43,18 @@ for yr in tidy_df.Year.unique():
             )
         )
 # Add title
-fig.update_layout(
+mo_mlk_prod_fig.update_layout(
     title = 'Monthly ' + col + ' - National',
     #yaxis_title = col,
 )
 
 # init the figure
 col = 'Milk Cows'
-fig2 = go.FigureWidget()
+mo_mlk_cws_fig = go.FigureWidget()
 # add some traces
 for yr in tidy_df.Year.unique():
     if yr in {2020, 2019}:
-        fig2.add_trace(
+        mo_mlk_cws_fig.add_trace(
             go.Scatter(
                 x = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])['Period'],
                 y = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])[col],
@@ -61,7 +64,7 @@ for yr in tidy_df.Year.unique():
         )
     # add the rest of the traces toggled off
     else:
-        fig2.add_trace(
+        mo_mlk_cws_fig.add_trace(
             go.Scatter(
                 x = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])['Period'],
                 y = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])[col],
@@ -71,12 +74,46 @@ for yr in tidy_df.Year.unique():
             )
         )
 # Add title
-fig2.update_layout(
+mo_mlk_cws_fig.update_layout(
+    title = 'Monthly ' + col + ' - National',
+    #yaxis_title = col,
+)
+
+# init the figure
+col = 'Milk Per Cow'
+mo_mlk_per_cws_fig = go.FigureWidget()
+# add some traces
+for yr in tidy_df.Year.unique():
+    if yr in {2020, 2019}:
+        mo_mlk_per_cws_fig.add_trace(
+            go.Scatter(
+                x = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])['Period'],
+                y = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])[col],
+                mode = 'lines+markers',
+                name = str(yr),
+            )
+        )
+    # add the rest of the traces toggled off
+    else:
+        mo_mlk_per_cws_fig.add_trace(
+            go.Scatter(
+                x = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])['Period'],
+                y = tidy_df[tidy_df.Year == yr].sort_values(by = ['Month'])[col],
+                mode = 'lines+markers',
+                name = str(yr),
+                visible='legendonly'
+            )
+        )
+# Add title
+mo_mlk_per_cws_fig.update_layout(
     title = 'Monthly ' + col + ' - National',
     #yaxis_title = col,
 )
 
 
+
+# Define HTML layout
+# ---------------------------
 def create_layout(app):
     # Page layouts
     return html.Div(
@@ -133,7 +170,7 @@ def create_layout(app):
                         [
                             dcc.Graph(
                                 id = 'month-national-milk-prod',
-                                figure = fig
+                                figure = mo_mlk_prod_fig
                             ),
                         ],
                     ),
@@ -141,8 +178,17 @@ def create_layout(app):
                     html.Div(
                         [
                             dcc.Graph(
-                                id = 'month-national-milk-prod',
-                                figure = fig2
+                                id = 'month-milk-cows',
+                                figure = mo_mlk_cws_fig
+                            ),
+                        ],
+                    ),
+                    # Row 6
+                    html.Div(
+                        [
+                            dcc.Graph(
+                                id = 'month-mlk-per-cws',
+                                figure = mo_mlk_per_cws_fig
                             ),
                         ],
                     ),
