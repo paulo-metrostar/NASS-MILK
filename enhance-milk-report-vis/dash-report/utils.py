@@ -60,20 +60,25 @@ def get_menu():
     menu = html.Div(
         [
             dcc.Link(
-                "Page 1",
-                href="/dash-report/page1",
+                "Overview",
+                href="/dash-report/overview",
                 className="tab first",
             ),
             dcc.Link(
-                "Page 2",
-                href="/dash-report/page2",
+                "Dictionary & Footnotes",
+                href="/dash-report/data_dictionary",
                 className="tab",
             ),
             dcc.Link(
-                "Tidy Data Long Monthly National 2019 & 2020",
+                "Tables - Wide",
+                href="/dash-report/tables",
+                className="tab",
+            ),
+            dcc.Link(
+                "Tidy Data - Long (Mo. Nat. 19-20)",
                 href="/dash-report/tidy_data_long_monthly_nat",
                 className="tab",
-            )
+            ),
         ],
         className="row all-tabs",
     )

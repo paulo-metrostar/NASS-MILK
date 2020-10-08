@@ -4,8 +4,9 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 from pages import (
-    page1,
-    page2,
+    overview,
+    tables,
+    data_dictionary,
     tidy_data_long_monthly_nat
 )
 
@@ -22,18 +23,21 @@ app.layout = html.Div(
 # Update page
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def display_page(pathname):
-    if pathname == "/dash-report/page2":
-        return page2.create_layout(app)
+    if pathname == "/dash-report/tables":
+        return tables.create_layout(app)
     elif pathname == "/dash-report/tidy_data_long_monthly_nat":
         return tidy_data_long_monthly_nat.create_layout(app)
+    elif pathname == "/dash-report/data_dictionary":
+        return data_dictionary.create_layout(app)
     elif pathname == "/dash-report/full-view":
         return (
-            page1.create_layout(app),
-            page2.create_layout(app),
+            overview.create_layout(app),
+            data_dictionary.create_layout(app),
+            tables.create_layout(app),
             tidy_data_long_monthly_nat.create_layout(app)
         )
     else:
-        return page1.create_layout(app)
+        return overview.create_layout(app)
 
 
 if __name__ == "__main__":

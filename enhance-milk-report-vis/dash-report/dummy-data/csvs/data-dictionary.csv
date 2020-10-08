@@ -1,0 +1,8 @@
+Attribute,Description and Footnotes,Units,Aggregation,Data Item,Commodity
+Year,Calendar year of survey estimate,Calendar year,,Year,
+Period,Calendar month of survey estimate,Calendar month,,Period,
+Milk Cows,Heads of milk-producing cattle. Includes dry cows. Excludes heifers not yet fresh,Heads of cattle,"Unclear, presumably sum of state counts but the ""Data Item"" name icludes ""AVG"" which is confusing","CATTLE, COWS, MILK - INVENTORY, AVG, MEASURED IN HEAD",CATTLE
+Milk Production (lbs),Total pounds of milk produced. Excludes milk sucked by calves.,Lbs,Total,"MILK - PRODUCTION, MEASURED IN LB",MILK
+Milk Per Cow,Total pounds of milk produced divided by number of milk producing cows. Excludes milk sucked by calves.,Lbs per cattle-head,Average,"MILK - PRODUCTION, MEASURED IN LB / HEAD",MILK
+Month,Calendar month as integer,Calendar month,,Month,
+Quarter,"Calendar cuarter as integer (1 corresponds to Jan. through Mar, etc.)",Calendar quarter,,,

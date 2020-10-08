@@ -13,7 +13,8 @@ import pathlib
 PATH = pathlib.Path(__file__).parent
 DATA_PATH = PATH.joinpath("../../data-mart-tech-specs").resolve()
 
-# get data
+
+
 # read in the quarterly data in tidy long format
 quarterly_long_df = pd.read_excel(
     io = "dummy-data/milk-prod-data-mart-reqs-1.4.xlsx",
@@ -23,7 +24,6 @@ quarterly_long_df = pd.read_excel(
 quarterly_long_df = quarterly_long_df[[
     'Quarter', '2019 Milk Cows', '2020 Milk Cows', '2019 Milk Per Cow', '2020 Milk Per Cow', '2019 Milk Production (lbs)', '2020 Milk Production (lbs)', '2020 Milk Production (lbs) Percent Change from 2019'
 ]]
-
 # get qtly aggregates
 agg_qtly_df = pd.DataFrame()
 agg_qtly_df['Agg'] = ['Annual']
@@ -36,7 +36,9 @@ agg_qtly_df['Avg 2020 Milk Production (lbs) Percent Change from 2019'] = round(q
 # rename the columns
 #agg_qtly_df = agg_qtly_df.rename(columns = {col: 'Sum' for col in agg_qtly_df.columns if 'Sum' in col})
 
-# read in the quarterly data in tidy long format
+
+
+# read in the monthly data in tidy long format
 monthly_long_df = pd.read_excel(
     io = "dummy-data/milk-prod-data-mart-reqs-1.4.xlsx",
     sheet_name = "month-wide-region24-2019-2020"
@@ -45,16 +47,33 @@ monthly_long_df = pd.read_excel(
 monthly_long_df = monthly_long_df[[
     'Month', '2019 Milk Cows', '2020 Milk Cows', '2019 Milk Per Cow', '2020 Milk Per Cow', '2019 Milk Production (lbs)', '2020 Milk Production (lbs)', '2020 Milk Production (lbs) Percent Change from 2019'
 ]]
-
 # get monthly aggregates
 agg_monthly_df = pd.DataFrame()
 agg_monthly_df['Annual'] = ['Aggregate']
 for col in monthly_long_df.columns:
     if col not in ('Quarter', '2020 Milk Production (lbs) Percent Change from 2019'):
         agg_monthly_df['Sum ' + col] = [monthly_long_df[col].sum()]
-
+# round the avg for printing
 agg_monthly_df['Avg 2020 Milk Production (lbs) Percent Change from 2019'] = round(monthly_long_df['2020 Milk Production (lbs) Percent Change from 2019'].mean(), 2)
 
+
+# read in the stately data in tidy wide format
+'''stately_wide_df = pd.read_excel(
+    io = "dummy-data/milk-prod-data-mart-reqs-1.4.xlsx",
+    sheet_name = "year-wide-24states-2019-2020"
+)
+# rearrange the columns in the order they currently exist in the milk report
+stately_wide_df = stately_wide_df[[
+    'State', '2019 Milk Cows', '2020 Milk Cows', '2019 Milk Per Cow', '2020 Milk Per Cow', '2019 Milk Production (lbs)', '2020 Milk Production (lbs)', '2020 Milk Production (lbs) Percent Change from 2019'
+]]
+# get monthly aggregates
+agg_monthly_df = pd.DataFrame()
+agg_monthly_df['Annual'] = ['Aggregate']
+for col in monthly_long_df.columns:
+    if col not in ('Quarter', '2020 Milk Production (lbs) Percent Change from 2019'):
+        agg_monthly_df['Sum ' + col] = [monthly_long_df[col].sum()]
+# round the avg for printing
+agg_monthly_df['Avg 2020 Milk Production (lbs) Percent Change from 2019'] = round(monthly_long_df['2020 Milk Production (lbs) Percent Change from 2019'].mean(), 2)'''
 
 # Define HTML layout
 # ---------------------------
@@ -71,7 +90,7 @@ def create_layout(app):
                     html.Div(
                         [
                             html.H6(
-                                        "Milk Cows and Production by Quarter -- United States: 2019-2020",
+                                        "Milk Cows and Production by Quarter - United States: 2019-2020",
                                         className="subtitle padded",
                                     ),
                             html.Table(
@@ -92,7 +111,7 @@ def create_layout(app):
                     html.Div(
                         [
                             html.H6(
-                                        "Milk Cows and Production by Month -- States: 2019-2020",
+                                        "Milk Cows and Production by Month - States: 2019-2020",
                                         className="subtitle padded",
                                     ),
                             html.Table(
@@ -113,7 +132,7 @@ def create_layout(app):
                     html.Div(
                         [
                             html.H6(
-                                        "Estimated Milk Cows and Production by Month -- United States: 2019-2020",
+                                        "Estimated Milk Cows and Production by Month - United States: 2019-2020",
                                         className="subtitle padded",
                                     ),
                             html.Table(
