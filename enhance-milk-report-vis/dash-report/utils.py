@@ -17,10 +17,10 @@ def get_header(app):
                         className="logo",
                     ),
                     html.A(
-                        html.Button("Download the full tidy data set for all years", 
+                        html.Button("Download the full tidy data set for this report (xlsx, csv, json, zip)", 
                                     # apologies for using the id for another element, didn't feel like defining the css for a new element right now
                                     id="learn-more-button"),
-                        href="https://github.com/paulo-metrostar/NASS-MILK/blob/master/enhance-milk-report-vis/data-mart-tech-specs/tidy-data.csv",
+                        href="https://github.com/paulo-metrostar/NASS-MILK/tree/master/enhance-milk-report-vis/dash-report/dummy-data",
                     ),
                     
                 ],
