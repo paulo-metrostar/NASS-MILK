@@ -93,6 +93,18 @@ def create_layout(app):
                                         "Milk Cows and Production by Quarter - United States: 2019-2020",
                                         className="subtitle padded",
                                     ),
+                            html.A(
+                                "Analyze online ⚡️",
+                                id="learn-more-button",
+                                #href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit#gid=389230414",
+                                href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit?usp=sharing",
+                                style={
+                                    "color": "#00c1a8", 
+                                   #"padding-top": "15px", 
+                                   "font-weight": "bold"
+                                      }
+
+                            ),
                             html.Table(
                                 make_dash_table(
                                     quarterly_long_df
@@ -114,6 +126,18 @@ def create_layout(app):
                                         "Milk Cows and Production by Month - States: 2019-2020",
                                         className="subtitle padded",
                                     ),
+                            html.A(
+                                "Analyze online ⚡️",
+                                id="learn-more-button",
+                                #href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit#gid=389230414",
+                                href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit?usp=sharing",
+                                style={
+                                    "color": "#00c1a8", 
+                                   #"padding-top": "15px", 
+                                   "font-weight": "bold"
+                                      }
+
+                            ),
                             html.Table(
                                 make_dash_table(
                                     monthly_long_df
@@ -135,6 +159,18 @@ def create_layout(app):
                                         "Estimated Milk Cows and Production by Month - United States: 2019-2020",
                                         className="subtitle padded",
                                     ),
+                            html.A(
+                                "Analyze online ⚡️",
+                                id="learn-more-button",
+                                #href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit#gid=389230414",
+                                href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit?usp=sharing",
+                                style={
+                                    "color": "#00c1a8", 
+                                   #"padding-top": "15px", 
+                                   "font-weight": "bold"
+                                      }
+
+                            ),
                             html.Table(
                                 make_dash_table(
                                     monthly_long_df

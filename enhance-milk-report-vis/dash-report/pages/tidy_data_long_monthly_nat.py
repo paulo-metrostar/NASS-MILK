@@ -45,9 +45,21 @@ def create_layout(app):
                     html.Div(
                         [
                             html.H6(
-                                        "Monthly National Tidy Data - Long Format",
-                                        className="subtitle padded",
+                                "Monthly National Tidy Data - Long Format",
+                                className="subtitle padded",
                                     ),
+                            html.A(
+                                "Analyze online ⚡️",
+                                id="learn-more-button",
+                                #href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit#gid=389230414",
+                                href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit?usp=sharing",
+                                style={
+                                    "color": "#00c1a8", 
+                                   #"padding-top": "15px", 
+                                   "font-weight": "bold"
+                                      }
+
+                            ),
                             html.Table(
                                 make_dash_table(
                                     # select the columns in an order conducive to automated analysis 
@@ -58,7 +70,8 @@ def create_layout(app):
                                         pd.to_numeric(tidy_df.Year) >= 2019
                                     ]
                                 ),
-                            )
+                            ),
+                            
                         ],
                         style = {"overflow-x":"auto"},
                     ),
