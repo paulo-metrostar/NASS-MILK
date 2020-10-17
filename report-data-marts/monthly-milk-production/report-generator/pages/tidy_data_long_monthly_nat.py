@@ -54,8 +54,7 @@ def create_layout(app):
                             html.A(
                                 "Analyze online ⚡️",
                                 id="learn-more-button",
-                                #href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit#gid=389230414",
-                                href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit?usp=sharing",
+                                href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit#gid=175528314",
                                 style={
                                     "color": "#00c1a8", 
                                    #"padding-top": "15px", 
