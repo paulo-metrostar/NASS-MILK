@@ -75,7 +75,9 @@ def create_layout(app):
                             html.A(
                                 "Analyze online ⚡️",
                                 id="learn-more-button",
-                                href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit#gid=311186345",
+                                # saving page to pdf breaks the link by replacing "#" with "%23"
+                                #href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit#gid=311186345",
+                                href = "https://bit.ly/31d1Qnu",
                                 style={
                                     "color": "#00c1a8", 
                                    #"padding-top": "15px", 
@@ -107,7 +109,9 @@ def create_layout(app):
                             html.A(
                                 "Analyze online ⚡️",
                                 id="learn-more-button",
-                                href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit#gid=1904881237",
+                                # saving page to pdf breaks the link by replacing "#" with "%23"
+                                href = "https://bit.ly/3j6K3ob",
+                                #href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit#gid=1904881237",
                                 style={
                                     "color": "#00c1a8", 
                                    #"padding-top": "15px", 
@@ -139,7 +143,9 @@ def create_layout(app):
                             html.A(
                                 "Analyze online ⚡️",
                                 id="learn-more-button",
-                                href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit#gid=2641315",
+                                # saving page to pdf breaks the link by replacing "#" with "%23"
+                                href = "https://bit.ly/2H6q2RQ",
+                                #href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit#gid=2641315",
                                 style={
                                     "color": "#00c1a8", 
                                    #"padding-top": "15px", 

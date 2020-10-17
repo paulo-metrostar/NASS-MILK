@@ -54,7 +54,9 @@ def create_layout(app):
                             html.A(
                                 "Analyze online ⚡️",
                                 id="learn-more-button",
-                                href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit#gid=175528314",
+                                # saving page to pdf breaks the link by replacing "#" with "%23"
+                                #href = "https://docs.google.com/spreadsheets/d/1ZcBD8Dk6EcTx1TuHo6_LdB0wcZkvPkXoptBmE7zWyXM/edit#gid=175528314",
+                                href = "https://bit.ly/2Ha26fZ",
                                 style={
                                     "color": "#00c1a8", 
                                    #"padding-top": "15px", 
