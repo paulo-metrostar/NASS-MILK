@@ -6,3 +6,4 @@ Milk Production (lbs),Total pounds of milk produced. Excludes milk sucked by cal
 Milk Per Cow,Total pounds of milk produced divided by number of milk producing cows. Excludes milk sucked by calves.,Lbs per cattle-head,Average,"MILK - PRODUCTION, MEASURED IN LB / HEAD",MILK
 Month,Calendar month as integer,Calendar month,,Month,
 Quarter,"Calendar cuarter as integer (1 corresponds to Jan. through Mar, etc.)",Calendar quarter,,,
+Suppressed,"Indicates if a NULL value in a column is NULL not because it is simply absent from the record, but because the value was suppressed for disclosure reasons. If no such column is in your data sample then none of your results included suppressed values.",Boolean,,,
