@@ -3,20 +3,28 @@
     - https://docs.google.com/spreadsheets/d/1mH_zt_17Jh6oB8DNpwV4TklRgUaifS-4lct5c3iiVF4/edit#gid=853696630
 - Quarterly National Tidy-Wide [last year] - [present year]
     - https://docs.google.com/spreadsheets/d/1mH_zt_17Jh6oB8DNpwV4TklRgUaifS-4lct5c3iiVF4/edit#gid=311186345
+- Aggregated Quarterly National Tidy-Wide [last year] - [present year]
+    - https://docs.google.com/spreadsheets/d/1mH_zt_17Jh6oB8DNpwV4TklRgUaifS-4lct5c3iiVF4/edit#gid=501052366
 - Quarterly National Tidy-Long [last year] - [present year]
     - https://docs.google.com/spreadsheets/d/1mH_zt_17Jh6oB8DNpwV4TklRgUaifS-4lct5c3iiVF4/edit#gid=119760846
 - Monthly [24] States Tidy-Wide [last year] - [present year]
     - https://docs.google.com/spreadsheets/d/1mH_zt_17Jh6oB8DNpwV4TklRgUaifS-4lct5c3iiVF4/edit#gid=1904881237
+- Aggregated Monthly [24] States Tidy-Wide [last year] - [present year]
+    - https://docs.google.com/spreadsheets/d/1mH_zt_17Jh6oB8DNpwV4TklRgUaifS-4lct5c3iiVF4/edit#gid=775081395
 - Monthly [24] States Tidy-Long [last year] - [present year]
     - https://docs.google.com/spreadsheets/d/1mH_zt_17Jh6oB8DNpwV4TklRgUaifS-4lct5c3iiVF4/edit#gid=389230414
 - Monthly National Tidy-Wide [last year] - [present year]
     - https://docs.google.com/spreadsheets/d/1mH_zt_17Jh6oB8DNpwV4TklRgUaifS-4lct5c3iiVF4/edit#gid=2641315
+- Aggregated Monthly National Tidy-Wide [last year] - [present year]
+    - https://docs.google.com/spreadsheets/d/1mH_zt_17Jh6oB8DNpwV4TklRgUaifS-4lct5c3iiVF4/edit#gid=1417715519
 - Monthly National Tidy-Long [last year] - [present year]
     - https://docs.google.com/spreadsheets/d/1mH_zt_17Jh6oB8DNpwV4TklRgUaifS-4lct5c3iiVF4/edit#gid=175528314
 - [24] States [report-month] Tidy-Wide [last year] - [present year]
     - https://docs.google.com/spreadsheets/d/1mH_zt_17Jh6oB8DNpwV4TklRgUaifS-4lct5c3iiVF4/edit#gid=1499605373
 - [24] States [report-month - 1] Tidy-Wide [last year] - [present year]
     - https://docs.google.com/spreadsheets/d/1mH_zt_17Jh6oB8DNpwV4TklRgUaifS-4lct5c3iiVF4/edit#gid=252676891
+- Aggregated [24] States [report-month -1] - [report-month] Tidy-Wide [last year] - [present year]
+    - https://docs.google.com/spreadsheets/d/1mH_zt_17Jh6oB8DNpwV4TklRgUaifS-4lct5c3iiVF4/edit#gid=588116760
 - [24] States [report-month] - [report-month - 1] Tidy-Long [last year] - [present year]
     - https://docs.google.com/spreadsheets/d/1mH_zt_17Jh6oB8DNpwV4TklRgUaifS-4lct5c3iiVF4/edit#gid=1544738826
 - metadata
