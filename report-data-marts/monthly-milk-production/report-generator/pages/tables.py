@@ -24,35 +24,59 @@ quarterly_long_df = pd.read_excel(
 quarterly_long_df = quarterly_long_df[[
     'Quarter', '2019 Milk Cows', '2020 Milk Cows', '2019 Milk Per Cow', '2020 Milk Per Cow', '2019 Milk Production (lbs)', '2020 Milk Production (lbs)', '2020 Milk Production (lbs) Percent Change from 2019'
 ]]
+
 # get qtly aggregates
-agg_qtly_df = pd.DataFrame()
-agg_qtly_df['Agg'] = ['Annual']
-# aggregate the columns to sum
-for col in quarterly_long_df.columns:
-    if col not in ('Quarter', '2020 Milk Production (lbs) Percent Change from 2019', 'Month'):
-        agg_qtly_df['Sum ' + col] = [quarterly_long_df[col].sum()]
-# aggregate the column to average
-agg_qtly_df['Avg 2020 Milk Production (lbs) Percent Change from 2019'] = round(quarterly_long_df['2020 Milk Production (lbs) Percent Change from 2019'].mean(), 2)
+agg_qtly_df = pd.read_excel(
+    io = DATA_PATH.joinpath("milk-prod-data-mart-reqs-1.5.xlsx"),
+    sheet_name = "AggrQNWYPL"
+)[
+    # rearrange the columns in the order they currently exist in the milk report
+    [
+    'Estimate', '2019 Milk Cows', '2020 Milk Cows', '2019 Milk Per Cow', '2020 Milk Per Cow', '2019 Milk Production (lbs)', '2020 Milk Production (lbs)', '2020 Milk Production (lbs) Percent Change from 2019'
+]]
 
 
-# read in the monthly data in tidy long format
-monthly_long_df = pd.read_excel(
+# read in the monthly nat data in tidy wide format
+monthly_nat_wide_df = pd.read_excel(
+    io = DATA_PATH.joinpath("milk-prod-data-mart-reqs-1.5.xlsx"),
+    #sheet_name = "month-wide-region24-2019-2020",
+    sheet_name = "MoNtnlWdYrsPrsntLst",
+)
+# rearrange the columns in the order they currently exist in the milk report
+monthly_nat_wide_df = monthly_nat_wide_df[[
+    'Month', '2019 Milk Cows', '2020 Milk Cows', '2019 Milk Per Cow', '2020 Milk Per Cow', '2019 Milk Production (lbs)', '2020 Milk Production (lbs)', '2020 Milk Production (lbs) Percent Change from 2019'
+]]
+# get monthly aggregates
+agg_monthly_nat_wide_df = pd.read_excel(
+    io = DATA_PATH.joinpath("milk-prod-data-mart-reqs-1.5.xlsx"),
+    sheet_name = "AggrNWYPL"
+)[
+    # rearrange the columns in the order they currently exist in the milk report
+    [
+    'Estimate', '2019 Milk Cows', '2020 Milk Cows', '2019 Milk Per Cow', '2020 Milk Per Cow', '2019 Milk Production (lbs)', '2020 Milk Production (lbs)', '2020 Milk Production (lbs) Percent Change from 2019'
+]]
+
+# read in the monthly 24state data in tidy wide format
+monthly_24st_wide_df = pd.read_excel(
     io = DATA_PATH.joinpath("milk-prod-data-mart-reqs-1.5.xlsx"),
     #sheet_name = "month-wide-region24-2019-2020",
     sheet_name = "Mo24stWdYrsPrsntLst",
 )
 # rearrange the columns in the order they currently exist in the milk report
-monthly_long_df = monthly_long_df[[
+monthly_24st_wide_df = monthly_24st_wide_df[[
     'Month', '2019 Milk Cows', '2020 Milk Cows', '2019 Milk Per Cow', '2020 Milk Per Cow', '2019 Milk Production (lbs)', '2020 Milk Production (lbs)', '2020 Milk Production (lbs) Percent Change from 2019'
 ]]
 # get monthly aggregates
-agg_monthly_df = pd.DataFrame()
-agg_monthly_df['Annual'] = ['Aggregate']
-for col in monthly_long_df.columns:
-    if col not in ('Quarter', '2020 Milk Production (lbs) Percent Change from 2019', 'Month'):
-        agg_monthly_df['Sum ' + col] = [monthly_long_df[col].sum()]
-# round the avg for printing
-agg_monthly_df['Avg 2020 Milk Production (lbs) Percent Change from 2019'] = round(monthly_long_df['2020 Milk Production (lbs) Percent Change from 2019'].mean(), 2)
+agg_monthly_24st_wide_df = pd.read_excel(
+    io = DATA_PATH.joinpath("milk-prod-data-mart-reqs-1.5.xlsx"),
+    sheet_name = "AggrM24sWYPL"
+)[
+    # rearrange the columns in the order they currently exist in the milk report
+    [
+    'Estimate', '2019 Milk Cows', '2020 Milk Cows', '2019 Milk Per Cow', '2020 Milk Per Cow', '2019 Milk Production (lbs)', '2020 Milk Production (lbs)', '2020 Milk Production (lbs) Percent Change from 2019'
+]]
+
+
 
 # Define HTML layout
 # ---------------------------
@@ -64,7 +88,7 @@ def create_layout(app):
             # page 2
             html.Div(
                 [
-                    html.P("Values in tables may not add due to rounding. Blank cells indicate estimation period has not yet begin"),
+                    html.P("Values in tables may not add due to rounding. Blank cells indicate estimation period has not yet begun"),
                     # Row 3
                     html.Div(
                         [
@@ -103,7 +127,7 @@ def create_layout(app):
                     html.Div(
                         [
                             html.H6(
-                                        "Milk Cows and Production by Month - States: 2019-2020",
+                                        "Milk Cows and Production by Month - [24 Selected] States: 2019-2020",
                                         className="subtitle padded",
                                     ),
                             html.A(
@@ -121,13 +145,13 @@ def create_layout(app):
                             ),
                             html.Table(
                                 make_dash_table(
-                                    monthly_long_df
+                                    monthly_24st_wide_df
                                 ),
                             ),
                             # add aggregate
                             html.Table(
                                 make_dash_table(
-                                    agg_monthly_df
+                                    agg_monthly_24st_wide_df
                                 ),
                             ),
                         ],
@@ -155,13 +179,13 @@ def create_layout(app):
                             ),
                             html.Table(
                                 make_dash_table(
-                                    monthly_long_df
+                                    monthly_nat_wide_df
                                 ),
                             ),
                             # add aggregate
                             html.Table(
                                 make_dash_table(
-                                    agg_monthly_df
+                                    agg_monthly_nat_wide_df
                                 ),
                             ),
                         ],
