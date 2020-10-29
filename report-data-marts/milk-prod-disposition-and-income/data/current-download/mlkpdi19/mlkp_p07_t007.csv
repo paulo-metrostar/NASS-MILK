@@ -1,0 +1,73 @@
+7,"t","Milk Production, Disposition, and Income 2018 Summary: Released May 30, 2019, by the National Agricultural Statistics Service (NASS), Agricultural Statistics Board, United States Department of Agriculture (USDA)."
+7,"t","Milk Used and Marketed by Producers – States and United States: 2017"
+7,"t","[May not add due to rounding]"
+7,"h","","","","","",""
+7,"h","","Milk used where produced","Milk used where produced","Milk used where produced","Milk marketed by producers","Milk marketed by producers"
+7,"h","","","","","",""
+7,"h","","","","","",""
+7,"h","State","Fed to","Milk,","","","Fluid"
+7,"h","","calves 1/","cream, and","Total","Total 2/","grade 3/"
+7,"h","","","butter","","",""
+7,"h","","","","","",""
+7,"u","","(million pounds)","(million pounds)","(million pounds)","(million pounds)","(percent)"
+7,"d","Alabama",0.7,0.3,1.0,89.0,100
+7,"d","Alaska",0.2,0.2,0.4,2.5,100
+7,"d","Arizona",13.0,1.0,14.0,5019.0,100
+7,"d","Arkansas",1.7,0.3,2.0,78.0,100
+7,"d","California",26.0,4.0,30.0,39768.0,97
+7,"d","Colorado",21.0,1.0,22.0,4167.0,100
+7,"d","Connecticut",2.5,0.5,3.0,417.0,100
+7,"d","Delaware",0.9,0.1,1.0,91.8,100
+7,"d","Florida",5.0,1.0,6.0,2490.0,100
+7,"d","Georgia",7.0,1.0,8.0,1832.0,100
+7,"d","",,,,,
+7,"d","Hawaii",0.1,0.1,0.2,38.7,100
+7,"d","Idaho",31.0,1.0,32.0,14601.0,100
+7,"d","Illinois",10.0,2.0,12.0,1917.0,98
+7,"d","Indiana",23.0,4.0,27.0,4228.0,100
+7,"d","Iowa",15.0,1.0,16.0,5163.0,100
+7,"d","Kansas",13.0,1.0,14.0,3485.0,100
+7,"d","Kentucky",6.0,1.0,7.0,1035.0,100
+7,"d","Louisiana",2.0,1.0,3.0,158.0,100
+7,"d","Maine",3.0,1.0,4.0,626.0,100
+7,"d","Maryland",7.0,1.0,8.0,948.0,100
+7,"d","",,,,,
+7,"d","Massachusetts",1.5,0.5,2.0,209.0,100
+7,"d","Michigan",33.0,2.0,35.0,11196.0,100
+7,"d","Minnesota",95.0,4.0,99.0,9768.0,99
+7,"d","Mississippi",1.0,1.0,2.0,135.0,100
+7,"d","Missouri",17.0,4.0,21.0,1220.0,97
+7,"d","Montana",3.0,2.0,5.0,283.0,100
+7,"d","Nebraska",5.5,0.5,6.0,1438.0,100
+7,"d","Nevada",5.0,1.0,6.0,703.0,100
+7,"d","New Hampshire",1.5,0.5,2.0,271.0,100
+7,"d","New Jersey",1.5,0.5,2.0,117.0,100
+7,"d","",,,,,
+7,"d","New Mexico",42.0,3.0,45.0,8167.0,100
+7,"d","New York",55.0,2.0,57.0,14872.0,100
+7,"d","North Carolina",5.0,1.0,6.0,946.0,100
+7,"d","North Dakota",4.5,0.5,5.0,340.0,98
+7,"d","Ohio",24.0,5.0,29.0,5590.0,97
+7,"d","Oklahoma",6.0,1.0,7.0,721.0,100
+7,"d","Oregon",20.0,1.0,21.0,2508.0,100
+7,"d","Pennsylvania",61.0,14.0,75.0,10818.0,100
+7,"d","Rhode Island",0.1,-,0.1,12.9,100
+7,"d","South Carolina",2.0,1.0,3.0,245.0,100
+7,"d","",,,,,
+7,"d","South Dakota",7.0,1.0,8.0,2610.0,100
+7,"d","Tennessee",4.0,1.0,5.0,688.0,100
+7,"d","Texas",25.0,1.0,26.0,12028.0,100
+7,"d","Utah",12.0,1.0,13.0,2202.0,100
+7,"d","Vermont",14.0,2.0,16.0,2713.0,100
+7,"d","Virginia",8.0,2.0,10.0,1726.0,100
+7,"d","Washington",17.0,1.0,18.0,6513.0,100
+7,"d","West Virginia",2.0,1.0,3.0,124.0,100
+7,"d","Wisconsin",239.0,14.0,253.0,30080.0,99
+7,"d","Wyoming",1.3,0.2,1.5,136.7,100
+7,"d","",,,,,
+7,"d","United States",901.0,91.0,992.0,214535.0,99
+7,"c",""
+7,"f","-  Represents zero."
+7,"f","1/ Excludes milk sucked by calves."
+7,"f","2/ Milk sold to plants and dealers as whole milk and equivalent amounts of milk for cream. Includes milk produced by dealers' own herds and milk sold directly to consumers. Also includes milk produced by institutional herds."
+7,"f","3/ Percentage of milk sold that is eligible for fluid use (Grade A in most States). Includes fluid grade milk used in manufacturing dairy products."
